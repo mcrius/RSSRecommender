@@ -1,0 +1,124 @@
+.menuDiv {
+    font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left:0;
+}
+
+
+.menuDiv > ul {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 15px 4px 17px 0;
+    list-style: none;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.menuDiv > ul a{
+    color:black;
+    text-decoration: none;
+}
+.menuDiv > ul li {
+    font: bold 12px/18px sans-serif;
+    display: inline-block;
+    margin-right: -4px;
+    position: relative;
+    padding: 15px 20px;
+    background: #fff;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.menuDiv > ul li:hover {
+    background: #555;
+    color: #fff;
+}
+.menuDiv > ul li ul {
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 150px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transiton: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    -transition: opacity 0.2s;
+}
+.menuDiv > ul li ul li { 
+    background: #555; 
+    display: block; 
+    color: #fff;
+    text-shadow: 0 -1px 0 #000;
+}
+.menuDiv > ul li ul li:hover { background: #666; }
+.menuDiv > ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.content{
+    float:left;
+    margin-left: 350px;
+    width:640px;
+}
+
+body{
+    background-color: #eee;
+}
+
+h4{
+    margin: 3px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #bbb;
+    text-transform: uppercase;
+}
+
+.author{
+    color: #28ADE6;
+    font-style: italic;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.article{
+    padding: 5px;
+}
+
+.sidebar{
+    float:left;
+    width: 300px;
+    padding-right: 25px;
+    position: fixed;
+    height: 800px;
+    overflow-y: auto;
+    z-index: 99999;
+    border-right: 1px solid #ccc;
+}
+
+.page{
+    margin: 10px auto;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    width:1000px;
+}

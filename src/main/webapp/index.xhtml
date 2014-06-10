@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>RSS Recommender</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="menuDiv menu">
+                <ul>
+                    <li>Home</li>
+                    <li>
+                        <h:commandLink  value="Download Now">
+                            <f:ajax event="click" render="@all" listener="#{index.download(e)}"/>
+                        </h:commandLink>
+                    </li>
+                </ul>
+            </div>
+            <div style="position:absolute; top:0; right: 2px;">
+                <div class="menuDiv">
+                    <ul>
+                        <li>
+                            <h:commandLink style="margin-left: 20px;" value="Login" action="/protected/index?faces-redirect=true"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </h:form>
+        <h:form style="margin-top: 50px">
+            <div class="page">
+                <div class="sidebar">
+                    <h2>Trending</h2>
+                    <ui:repeat value="#{index.featured}" var="f">
+                        <div style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+                            <h5 style="font-size: 14px; margin: 10px 0;">
+                                <h:commandLink style="color:black; text-decoration: none;"
+                                               value="#{f.title}" target="_new" action="#{index.increaseViews(f)}">
+                                    <f:setPropertyActionListener value="#{a.link}" target="#{exit.href}" />
+                                </h:commandLink></h5>
+                            <h:outputText value="#{f.description}"/>
+                            <div style="font-size: 12px; text-align: right;">Views: #{f.views}</div>
+                        </div>
+                    </ui:repeat>
+                </div>
+                <div class="content">
+                    <h2>Recent Articles</h2>
+                    <ui:repeat value="#{index.articles}" var="a">
+                        <div class="article">
+                            <h4>#{a.title}</h4>
+                            <div class="author">Author: #{a.author}</div>
+                            <div>#{a.description}</div>
+
+                            <div style="margin-top: 10px;">
+                                <h:outputText style="font-size: 12px;" value="#{a.date}">
+                                    <f:convertDateTime pattern="dd.MM.yy HH:mm"/>
+                                </h:outputText>
+                                <div style="float:right; display: inline-block;">
+
+                                    <h:commandLink style="color:black; text-decoration: none;"
+                                                   value="Read On" target="_new" action="#{index.increaseViews(a)}"
+                                                   >
+                                        <f:setPropertyActionListener value="#{a.link}" target="#{exit.href}" />
+                                    </h:commandLink>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+                <div style="clear:both"/>
+            </div>
+
+        </h:form>
+    </h:body>
+</html>
+

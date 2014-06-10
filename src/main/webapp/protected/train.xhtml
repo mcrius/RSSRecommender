@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Train Recommender</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="page" style="margin-top: 5% !important;">
+                <h:commandButton value="Load Another Article">
+                    <f:ajax />
+                </h:commandButton>
+                <h3>
+                    Title
+                </h3>
+                <div>
+                    <div>Author</div>
+                    <div>Text</div>
+                    <div style="text-align: right">
+                        <a>link</a>
+                    </div>
+                </div>
+                <div>
+                    <h:panelGrid columns="3" style="width: 100%; text-align: center">
+                        <h:commandButton value="I like it!">
+                            <f:ajax/>
+                        </h:commandButton>
+                        <h:commandButton value="Interesting!">
+                            <f:ajax/>
+                        </h:commandButton>
+                        <h:commandButton value="Very Interesting!">
+                            <f:ajax/>
+                        </h:commandButton>
+                    </h:panelGrid>
+
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
